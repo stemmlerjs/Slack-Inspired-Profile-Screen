@@ -1,0 +1,189 @@
+<!doctype html>
+<html ng-app='myApp'>
+
+<head>
+    <title>My Angular App</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,800,600,300,300italic' rel='stylesheet' type='text/css'>
+    <style>
+    #profile-screen {
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        margin: 0 auto;
+        font-family: 'Open Sans', sans-serif;
+        color: black;
+    }
+    
+    #profile-screen-nav {
+        text-align: center;
+        background-color: white;
+        height: 40px;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 7rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    }
+    
+    #profile-screen > h3 {
+        margin: 0;
+        font-weight: 900;
+        font-size: 1.4rem;
+        white-space: nowrap;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+    }
+    
+    #profile-esc {
+        position: absolute;
+        top: 18px;
+        right: 40px;
+    }
+    
+    #profile-esc > a {
+        font-size: 25px;
+        color: black;
+    }
+    
+    #profile-esc > a:hover {
+        font-size: 25px;
+        color: #2d2d2d;
+    }
+    
+    #profile-screen-body {
+        margin-top: 4rem;
+        color: black;
+    }
+
+    #profile-img-192 {
+        height: 192px;
+        width: 192px;
+        background-size: contain;
+        border-radius: 2px;
+    }
+
+    .form-group > input {
+        margin-bottom:10px;
+    }
+
+    #profile-screen-footer {
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        bottom: 0;
+        background-color: #F7F7F7;
+        width:100%;
+        height: 5rem;
+    }
+
+    #profile-save-button {
+        position: fixed;
+        bottom: 8px;
+        right: 36px;
+        width: 64px;
+    }
+
+    #profile-cancel-button {
+        position: fixed;
+        bottom: 8px;
+        right: 110px;
+        color: green;
+        background-color: #E0E0E0;
+    }
+
+    #profile-img-overlay {
+        height: 60%;
+        width: 192px;
+        color: white;
+        position: absolute;
+        bottom: 0px;
+        background: rgba(54, 25, 25, .5);
+        cursor:pointer;
+        border: solid black 2px;
+    }
+
+    #profile-img-overlay > h1 {
+        position: relative;
+        bottom: 14px;
+        left: 18px;
+    }
+
+    /******************************/
+    /********* ANIMATIONS *********/
+    /******************************/
+
+    /* Leaving the Profile Screen */
+    #profile-modal.ng-hide-add {
+        animation: 0.1s lightOut ease;
+    }
+    
+    /* Entering the Profile Screen */
+    #profile-modal.ng-hide-remove {
+        animation: 0.1s lightIn ease;
+    }
+
+    /* Leaving the Edit Picture Div */
+    #profile-img-overlay.ng-hide-add {
+        animation: 0.3s lightOut ease;
+    }
+
+    /* Entering the Edit Picture Div */
+    #profile-img-overlay.ng-hide-remove {
+        animation: 0.3s lightIn ease;
+    }
+
+    /* light speed out */
+    @keyframes lightOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes lightIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    </style>
+</head>
+
+<body ng-controller="MainController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Main</h4>
+                <a href="" ng-click="toggleProfileModal()">Click to show Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <profile-Modal id="profile-modal" ng-show="showProfileModal" location="Canada" tagline="Code is love, code is life." displayname="kstemmler" displaypicture="https://avatars.slack-edge.com/2016-05-04/40115696260_f516537b47175c5991bd_192.jpg"></profile-Modal>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

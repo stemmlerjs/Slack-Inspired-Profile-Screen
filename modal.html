@@ -1,0 +1,47 @@
+<div id="profile-screen" class="container">
+    <div id="profile-screen-nav" class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3><b>Edit your profile</b></h3>
+        </div>
+        <div id="profile-esc">
+            <a href="" ng-click="close()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        </div>
+    </div>
+    <div id="profile-screen-body" class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-2">
+                    <div class="form-group">
+                        <label for="displayName">Display Name</label>
+                        <input type="text" ng-model="displayName" class="form-control" id="displayName"></input>
+                        <label for="tagLine">Tagline</label>
+                        <input type="text" ng-model="tagLine" class="form-control" id="tagLine"></input>
+                        <div style="padding-left:5px;"><h6 style="color:#bfbdbd">Write something that your friends would recognize!</h6></div>
+                        <label for="location">Location</label>
+                        <input type="text" ng-model="location" class="form-control" id="location"></input>
+                    </div>
+                </div>
+                <div id="" class="col-sm-4">
+                    <label for="displayPicture">Profile Picture</label>
+                    <div id="profile-img-192" ng-click="editPictureDropDown()" ng-mouseover="picHoverIn()" ng-mouseleave="picHoverOut()" style="background-image: url({{displayPicture}})">
+                        <div id="profile-img-overlay" ng-show="showEditProfilePicture"><h1><b>Edit Profile Picture</b></h1></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="profile-screen-footer" class="row">
+        <div class="container">
+            <div>
+                <button id="profile-save-button" ng-click="saveChanges()" type="button" class="btn btn-primary" >
+                    Save
+                </button>
+
+                <button id="profile-cancel-button" ng-click="cancel()" type="button" class="btn" >
+                    Cancel
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
